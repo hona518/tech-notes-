@@ -1,6 +1,15 @@
+<!-- meta
+title: Windows 下写 .md 不跑版的编辑器配置
+category: 桌面工具
+keywords: .md, Markdown 预览, VS Code 中文, 等宽字体, Notepad3, 排版错乱
+slug: markdown-editor-setup
+updated: 2026-11-23
+-->
+
 # Windows 下写 .md 不跑版的编辑器配置
 
 > 关键词：`.md`、Markdown 预览、VS Code 中文、等宽字体、Notepad3、排版错乱、表格对不齐
+>
 > 分类：桌面工具 ｜ 首次记录：YYYY-MM-DD ｜ 最后验证：YYYY-MM-DD
 
 ## 症状 / 我要解决什么
@@ -23,7 +32,6 @@
 
 - 中英文混排表格对不齐 → 多半是字体问题，不是 Markdown 语法写错
 - 直接双击 `.md` 被系统关联到记事本 → 右键「打开方式」改成 VS Code 并设为默认
-- 
 
 ## 验证方式
 
@@ -31,4 +39,4 @@
 
 ## 关联
 
-- [关键词速查表](../KEYWORDS.md)
+- [关键词速查表](KEYWORDS.md)

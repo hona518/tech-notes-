@@ -1,6 +1,15 @@
+<!-- meta
+title: Bastion 残留 VNIC 删不掉、报 404 NotAuthorizedOrNotFound
+category: OCI / 云主机
+keywords: 404 NotAuthorizedOrNotFound, VNIC, Bastion, VCN 删不掉, oci network vnic get, Network Sources
+slug: oci-vnic-cleanup
+updated: 2026-11-23
+-->
+
 # Bastion 残留 VNIC 删不掉、报 404 NotAuthorizedOrNotFound
 
 > 关键词：`404 NotAuthorizedOrNotFound`、VNIC、Bastion、VCN 删不掉、`oci network vnic get --vnic-id`、Network Sources
+>
 > 分类：OCI / 云主机 ｜ 首次记录：YYYY-MM-DD ｜ 最后验证：YYYY-MM-DD
 > 适用环境：OCI 控制台 + OCI CLI
 
@@ -35,7 +44,6 @@ oci network vnic get --vnic-id <VNIC_ID>
 
 - 在 `Identity & Security > Network Sources` 里找 Bastion → 不在这个位置，正确入口是 `<补上>`
 - 控制台与 CLI 不在同一 region / compartment → 表现成 404，先核对 `--region` 与 compartment
-- 
 
 ## 验证方式
 
@@ -43,5 +51,5 @@ VCN 能正常删除，控制台列表不再出现残留 VNIC。
 
 ## 关联
 
-- [systemd 日志与提示排查](systemd-log-check.md)
-- [关键词速查表](../KEYWORDS.md)
+- [systemd 日志与提示排查](posts/oci-systemd-log/README.md)
+- [关键词速查表](KEYWORDS.md)

@@ -1,6 +1,15 @@
+<!-- meta
+title: oci-worker 部署后提示「立即查看 systemd 日志」怎么判
+category: OCI / 云主机
+keywords: journalctl -xe, systemctl --failed, active (running), oci-worker, journalctl -u oci-worker.service, 部署脚本提示
+slug: oci-systemd-log
+updated: 2026-11-23
+-->
+
 # oci-worker 部署后提示「立即查看 systemd 日志」怎么判
 
 > 关键词：`journalctl -xe`、`systemctl --failed`、`systemctl list-units "*oci*" --all`、`journalctl -u oci-worker.service`、`active (running)`、部署脚本提示
+>
 > 分类：OCI / 云主机 ｜ 首次记录：YYYY-MM-DD ｜ 最后验证：YYYY-MM-DD
 > 适用环境：OCI 实例 / Linux + systemd，部署 oci-manager / oci-worker
 
@@ -40,7 +49,6 @@ journalctl -u oci-worker.service -f
 - 只看脚本提示就以为服务挂了，实际 `active (running)`、无失败单元
 - 日志刷太快 → 先加 `--no-pager -n 50` 截断，别一上来就 `-f` 从头追
 - 服务名猜错 → 用 `list-units "*oci*" --all` 先把真实单元名捞出来
--
 
 ## 验证方式
 
@@ -48,5 +56,5 @@ journalctl -u oci-worker.service -f
 
 ## 关联
 
-- [Bastion 残留 VNIC 删除报 404](vnic-cleanup.md)
-- [关键词速查表](../KEYWORDS.md)
+- [Bastion 残留 VNIC 删除报 404](posts/oci-vnic-cleanup/README.md)
+- [关键词速查表](KEYWORDS.md)

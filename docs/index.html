@@ -6,11 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="个人排障手册：黑苹果、OCI、桌面工具">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+
+  <!-- ============================================================
+       外观修正区：想改页面长相，只改这个 <style> 里的内容就行。
+       改完 git push，刷新网页即可，不会影响任何一篇文章。
+       ============================================================ -->
   <style>
-    /* 代码块别太挤，方便复制命令 */
-    .markdown-section pre { font-size: 13px; line-height: 1.6; }
+    /* 引用块分行更清楚，关键词行不再挤成一坨 */
+    .markdown-section blockquote { border-left: 4px solid #42b983; background: #f8fcf9; }
+    .markdown-section blockquote p { margin: 4px 0; line-height: 1.8; }
+    .markdown-section blockquote code { font-size: 12px; }
+    /* 代码块方便复制命令 */
+    .markdown-section pre { font-size: 13px; line-height: 1.65; }
+    .markdown-section code { word-break: break-word; }
+    /* 图片不溢出、加个淡边框，配图更好认 */
+    .markdown-section img { max-width: 100%; border: 1px solid #eaecef; border-radius: 6px; }
+    /* 侧边栏字号 */
     .sidebar-nav > * > a { font-size: 14px; }
+    .sidebar-nav .app-name-link { font-size: 20px; }
   </style>
+  <!-- ================= 外观修正区结束 ================= -->
 </head>
 <body>
   <div id="app">加载中…</div>
@@ -22,6 +37,7 @@
       maxLevel: 4,
       auto2top: true,
       coverpage: false,
+      // 搜索索引按侧边栏自动发现页面；侧边栏由工具脚本生成，删文章不会留死链
       search: {
         paths: 'auto',
         depth: 4,
@@ -30,7 +46,7 @@
         hideOtherSidebarContent: false,
         namespace: 'tech-notes'
       }
-      // 想让右上角出现 GitHub 图标 / 「编辑本文」，去掉下面两行注释并改成自己的仓库：
+      // 想让右上角出现 GitHub 图标 / 「编辑本文」，去掉下面这行注释并改成自己的仓库：
       // ,repo: 'https://github.com/<用户名>/<仓库名>'
     }
   </script>

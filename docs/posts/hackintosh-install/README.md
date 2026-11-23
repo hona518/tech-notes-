@@ -1,6 +1,15 @@
+<!-- meta
+title: 黑苹果安装流程记录（示例 / 按自己机型补全）
+category: 黑苹果
+keywords: OpenCore, config.plist, EFI, USB 定制, SMBIOS, OC 引导报错
+slug: hackintosh-install
+updated: 2026-11-23
+-->
+
 # 黑苹果安装流程记录（示例 / 按自己机型补全）
 
 > 关键词：`OpenCore`、`config.plist`、`EFI`、USB 定制、`<机型>`、`<macOS 版本>`、`OC` 引导报错
+>
 > 分类：黑苹果 ｜ 首次记录：YYYY-MM-DD ｜ 最后验证：YYYY-MM-DD
 > 适用环境：<CPU / 主板 / 显卡 / 无线网卡> + <macOS 版本> + OpenCore <版本>
 
@@ -36,7 +45,6 @@ diskutil list
 
 - 现象 → 真实原因 → 怎么绕开
 - 升级 OpenCore / macOS 后哪几项必须重查
--
 
 ## 验证方式
 
@@ -46,4 +54,4 @@ diskutil list
 
 ## 关联
 
-- [关键词速查表](../KEYWORDS.md)
+- [关键词速查表](KEYWORDS.md)

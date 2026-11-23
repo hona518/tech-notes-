@@ -1,69 +1,71 @@
 # 折腾笔记 / tech-notes
 
 一个给自己用的排障手册：黑苹果安装、OCI 实例救砖、桌面工具配置……
-组织原则只有一条：**以后遇到同样的问题，30 秒内翻到那一篇**。所以按「场景 / 报错」分类，不按时间线写博客。
+组织原则只有一条：**以后遇到同样的问题，30 秒内翻到那一篇**。
 
-## 目录结构
+## 目录
 
 ```
 tech-notes/
-├── README.md                 ← 你正在看的这份说明
-└── docs/                     ← GitHub Pages 发布这个目录
-    ├── index.html            ← Docsify 配置（搜索、侧边栏、主题）
-    ├── .nojekyll             ← 不能删，见下方
-    ├── README.md             ← 站点首页
-    ├── _sidebar.md           ← 侧边栏 / 目录（新增文章要在这里登记）
-    ├── KEYWORDS.md           ← 报错、命令、型号 → 文档的速查表
-    ├── troubleshooting-template.md
-    ├── hackintosh/           ← 黑苹果
-    ├── oci/                  ← OCI / 云主机
-    └── misc/                 ← 桌面工具、路由器等
+├── README.md                ← 你正在看的这份说明
+├── 双击打开.bat             ← 【日常入口】双击它：建文章 / 删文章 / 重建目录
+├── tools/
+│   └── notes-tool.ps1       ← 工具本体（UTF-8 带 BOM，别改编码）
+└── docs/                    ← GitHub Pages 发布这个目录
+    ├── index.html           ← Docsify 配置；「外观修正区」改页面长相
+    ├── .nojekyll            ← 不能删，见下
+    ├── README.md            ← 站点首页
+    ├── _sidebar.md          ← 【自动生成】别手改
+    ├── KEYWORDS.md          ← 【自动生成】别手改
+    └── posts/               ← 每篇文章一个文件夹
+        ├── _template/       ← 模板：复制它就能新建一篇
+        ├── hackintosh-install/
+        │   ├── README.md    ← 正文
+        │   └── images/      ← 只属于这篇的图
+        └── ...
 ```
 
-## 三步上线
+## 上线（已经配好，这里只是备忘）
 
-1. GitHub 新建一个 **public** 仓库（名字随意，比如 `tech-notes`），把本目录内容推上去：
+仓库 → `Settings` → `Pages` → `Deploy from a branch` → `main` / `/docs`。
+访问 `https://<用户名>.github.io/<仓库名>/`。改完 `git push` 刷新即生效，不用装 Node / Python / Ruby。
 
-```bash
-git init
+`docs/.nojekyll` 不能删：从分支发布时 Pages 默认跑 Jekyll，会忽略下划线开头的文件，线上 `_sidebar.md` 会消失，表现为「本地正常、上线后侧边栏没了」。
+
+## 日常
+
+双击 **`双击打开.bat`**：
+
+- `1` 新建文章：填标题、分类、关键词、英文文件夹名 → 自动建 `posts/<名>/README.md` + `images/`
+- `2` 重建目录 + 体检：改完 meta / 加了图 / 手工删了文件夹后跑一次
+- `3` 删除文章：删整个文件夹并自动重建目录，**其他页面不受影响**
+
+然后：
+
+```powershell
 git add .
-git commit -m "init: 折腾笔记"
-git branch -M main
-git remote add origin https://github.com/<用户名>/<仓库名>.git
-git push -u origin main
+git commit -m "add: xxx"
+git push
 ```
 
-2. 仓库 → `Settings` → 左侧 `Pages` → `Build and deployment` → `Source` 选 **Deploy from a branch** → Branch 选 `main`、文件夹选 **`/docs`** → Save。
+## 写文章的规矩
 
-3. 等 1–2 分钟，访问 `https://<用户名>.github.io/<仓库名>/`。
-   如果仓库直接命名为 `<用户名>.github.io`，地址就是 `https://<用户名>.github.io/`，更短更好记。
-
-> 全程不用装 Node / Python / Ruby，不用跑构建命令：Docsify 在浏览器里直接读 Markdown 渲染，改完 `git push` 刷新就生效。
-
-## 绝对不要删
-
-- `docs/.nojekyll`：GitHub Pages 从分支发布时默认走 Jekyll，而 Jekyll 会忽略下划线开头的文件，导致线上 `_sidebar.md` 丢失、侧边栏消失，本地却一切正常。这个文件就是用来关掉 Jekyll 的。
-
-## 怎么写
-
-- 用 VS Code 打开整个文件夹写 `.md`：`Ctrl+Shift+V` 整页预览，`Ctrl+K V` 侧边预览。中文界面装 Chinese Language Pack 即可。
-- 文件名一律**小写英文 + 短横线**（`vnic-cleanup.md`），中文放标题里，避免 URL 转义和分享链接出问题。
-- 复制 `docs/troubleshooting-template.md` 改。关键是**把报错原文、命令、型号原样留着**——那才是以后搜索能命中的关键词。
-- 新文章记得在 `docs/_sidebar.md` 加一行（站内搜索靠侧边栏发现页面），并顺手在 `KEYWORDS.md` 补 2–3 个关键词。
-- 提交：`git add . && git commit -m "add: xxx" && git push`。
+1. 每篇顶部 `<!-- meta ... -->` 填 `title / category / keywords / slug / updated`，关键词尽量用**报错原文、命令、英文术语**。
+2. 正文用 `docs/posts/_template/README.md` 的骨架：**结论先行**，报错原样保留，命令别写「执行相关命令」这种废话。
+3. 图片放本文件夹 `images/`，写 `![说明](images/x.png)`；站内链接写 `KEYWORDS.md` 或 `posts/xxx/README.md`。
+4. 文件名/文件夹名一律**小写英文 + 短横线**，中文放标题里。
+5. 删文章走工具选项 `3`，别只删文件不改目录。
 
 ## 怎么找
 
-1. 网页左上角搜索框，会索引全部 Markdown 原文。
-2. `docs/KEYWORDS.md`：只记得大概症状时，翻关键词对照表。
-3. GitHub 仓库页按 `/` 聚焦搜索，或用 `repo:<用户名>/<仓库名> <关键词>`、`path:docs/oci/ <关键词>` 兜底。GitHub 不索引 Pages 网页本身，但会索引仓库默认分支里的源文件。
+站内搜索框 → [KEYWORDS.md](docs/KEYWORDS.md) → 侧边栏 → GitHub 仓库内 `repo:<用户>/<仓库> <关键词>` 兜底（GitHub 不索引 Pages 网页，但索引仓库源文件）。
 
 ## ⚠️ 公开警告
 
-GitHub Free 的 Pages 只能挂在 **public** 仓库上，而且**生成的网页任何人都能访问**；即便以后升级到 Pro 把仓库设成私有，站点依然是公开的。所以：
+GitHub Free 的 Pages 只能挂 **public** 仓库，而且**生成的网页任何人都能访问**；即便升级 Pro 把仓库设私有，站点依旧公开。所以：
 
-- 不写 OCI 的 OCID、租户名、邮箱、API 私钥、密钥指纹
+- 不写 OCI 的 OCID、租户名、邮箱、API 私钥
 - 不写黑苹果的序列号、ROM、MLB、SystemUUID、Apple ID
-- 不贴未打码的控制台截图
+- 不贴未打码的控制台截图、不写真实 token
 
-统一用 `<OCID>`、`<SERIAL>`、`<VNIC_ID>` 这类占位符代替。
+统一用 `<OCID>`、`<SERIAL>`、`<TOKEN>` 占位。

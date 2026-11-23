@@ -1,6 +1,15 @@
+<!-- meta
+title: 创建 GitHub Personal access token（HTTPS 推送用）
+category: GitHub / 认证
+keywords: Personal access token, PAT, github_pat_, ghp_, Contents: Read and write, Git Credential Manager, fatal: Authentication failed, 403
+slug: github-pat-token
+updated: 2026-11-23
+-->
+
 # 创建 GitHub Personal access token（HTTPS 推送用）
 
 > 关键词：`Personal access token`、`PAT`、`github_pat_`、`ghp_`、`repo`、`Contents: Read and write`、`Git Credential Manager`、Windows 凭据管理器、`fatal: Authentication failed`、`Recv failure: Connection was reset`
+>
 > 分类：GitHub / 认证 ｜ 首次记录：2026-11-23 ｜ 最后验证：2026-11-23
 > 适用环境：Windows 11 + PowerShell + git for Windows，HTTPS 方式推送到公开仓库
 
@@ -127,7 +136,7 @@ git push -u origin main
 ## 关联
 
 - [关键词速查表](KEYWORDS.md)
-- [Windows 下写 .md 不跑版的编辑器配置](misc/markdown-editor-setup.md)
+- [Windows 下写 .md 不跑版的编辑器配置](posts/markdown-editor-setup/README.md)
 
 ## 参考
 
