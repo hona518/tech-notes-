@@ -10,6 +10,9 @@
 - 桌面工具
   - [Markdown 编辑器与排版](misc/markdown-editor-setup.md)
 
+- GitHub / 认证
+  - [创建 Personal access token](github-pat-token.md)
+
 - 索引与模板
   - [关键词速查表](KEYWORDS.md)
   - [排障记录模板](troubleshooting-template.md)

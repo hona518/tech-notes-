@@ -8,6 +8,8 @@
 | `404 NotAuthorizedOrNotFound`、VNIC、Bastion、VCN 删不掉、`oci network vnic get`、Network Sources | [Bastion 残留 VNIC 删除报 404](oci/vnic-cleanup.md) |
 | OpenCore、`config.plist`、EFI、USB 定制、黑苹果安装、`OC` 引导 | [安装流程记录](hackintosh/install-notes.md) |
 | `.md` 排版、VS Code 中文、Markdown 预览、等宽字体、Notepad3 | [Markdown 编辑器与排版](misc/markdown-editor-setup.md) |
+| `Personal access token`、`PAT`、`github_pat_`、`ghp_`、`repo` scope、`Contents: Read and write`、`Git Credential Manager`、Windows 凭据管理器、`fatal: Authentication failed`、`Support for password authentication was removed` | [创建 GitHub Personal access token](github-pat-token.md) |
+| `Recv failure: Connection was reset`、`Test-NetConnection github.com -Port 443`、`http.proxy`、命令行 git 不走浏览器代理 | [创建 PAT 教程 · 踩过的坑](github-pat-token.md) |
 
 ## 仓库内兜底搜索
 
