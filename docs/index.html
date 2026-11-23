@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>折腾笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="个人排障手册：黑苹果、OCI、桌面工具">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+    /* 代码块别太挤，方便复制命令 */
+    .markdown-section pre { font-size: 13px; line-height: 1.6; }
+    .sidebar-nav > * > a { font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div id="app">加载中…</div>
+  <script>
+    window.$docsify = {
+      name: '折腾笔记',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      maxLevel: 4,
+      auto2top: true,
+      coverpage: false,
+      search: {
+        paths: 'auto',
+        depth: 4,
+        placeholder: '搜报错 / 命令 / 型号…',
+        noData: '没找到，换个关键词或翻 KEYWORDS.md',
+        hideOtherSidebarContent: false,
+        namespace: 'tech-notes'
+      }
+      // 想让右上角出现 GitHub 图标 / 「编辑本文」，去掉下面两行注释并改成自己的仓库：
+      // ,repo: 'https://github.com/<用户名>/<仓库名>'
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
+</body>
+</html>
